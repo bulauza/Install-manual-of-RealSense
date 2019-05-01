@@ -2,7 +2,7 @@
 How to install RealSense on Ubuntu 18.0.4.  
 And use it from Python-OpenCV
 
-内容
+内容  
 pythonからRealSenseを動かす為の環境構築  
 RealSense が OpneCV-3.4を要求するのでそれのinstallも込  
 ソースコードからビルドした.
