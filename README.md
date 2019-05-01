@@ -73,7 +73,11 @@ $ sudo /bin/bash -c ‘echo “/usr/local/lib” > /etc/ld.so.conf.d/opencv.conf
 $ sudo  ldconfig
 ```
 
-一旦ここまで！
+一旦ここまで！  
+メモ  
+cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true -DBUILD_CV_EXAMPLES=true
+sudo make uninstall && make clean && make && sudo make install
+
 
 公式  
 https://github.com/IntelRealSense/librealsense  
