@@ -75,7 +75,7 @@ $ sudo  ldconfig
 
 一旦ここまで！  
 メモ  
-cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true -DBUILD_CV_EXAMPLES=true
+cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true -DBUILD_CV_EXAMPLES=true  
 sudo make uninstall && make clean && make && sudo make install
 
 
