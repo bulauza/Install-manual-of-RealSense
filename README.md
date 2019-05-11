@@ -5,7 +5,8 @@ And use it from Python-OpenCV
 内容  
 pythonからRealSenseを動かす為の環境構築  
 RealSense が OpneCV-3.4を要求するのでそれのinstallも込  
-ソースコードからビルドした.
+ソースコードからビルドした.  
+書き途中
 
 対象者  
 Ubuntu 環境で Python から OpenCV 使って RealSense を動かしたい人向け  
