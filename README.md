@@ -1,12 +1,13 @@
 # Install-manual-of-RealSense
-How to install RealSense on Ubuntu 18.0.4.  
+How to install RealSense on Ubuntu 18.0.4  
 And use it from Python-OpenCV
 
 内容  
 pythonからRealSenseを動かす為の環境構築  
 RealSense が OpneCV-3.4を要求するのでそれのinstallも込  
-ソースコードからビルドした.  
-書き途中
+ソースコードからビルド．  
+**筆者の盛大な勘違いに基づいています．  
+未確認ですが多分こんなことしなくても`pip install pyrealsense2`で入ります．**
 
 対象者  
 Ubuntu 環境で Python から OpenCV 使って RealSense を動かしたい人向け  
@@ -18,9 +19,10 @@ Ubuntu 環境で Python から OpenCV 使って RealSense を動かしたい人�
 > Ubuntu LTS kernels 4.4, 4.10, 4.13 and 4.15.  
 
 流れ  
-1. Install OpenCV-3.4
-2. Install OpenCV-contrib-3.4
-3. Install something of RealSense
+1. Download source of OpenCV-3.4  
+2. Build OpenCV  
+3. Download RealSense SDK  
+4. Build RealSense SDK with OpenCV  
 
 
 ```
@@ -28,6 +30,8 @@ $ sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
 $ sudo apt install git cmake # If not installed
 ```
 
+## Install OpneCV
+### 1. Download source of OpenCV-3.4 
 まずはOpenCV に必要なライブラリをインストール.  
 4行目はオプションで.  
 エラーが出て飛ばしたような気もする.  
@@ -35,14 +39,14 @@ $ sudo apt install git cmake # If not installed
 $ mkdir ~/opencv && cd ~/opencv
 $ sudo apt install build-essential
 $ sudo apt install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-$ sudo apt install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+($ sudo apt install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev)
 ```
-## Install OpenCV from source  
+
 次にOpenCVのソースコードをダウンロード. 
 拡張モジュールのcontribも落としてきます.  
 今回は最新版ではなく3.4を落とす必要があるのでgitのreleasesで選択します.  
 物草な人は以下のコマンドを打てばok.  
-ちなみにzipファイルの名前が同じで若干混乱した.
+ちなみにzipファイルの名前が同じで若干混乱するので解凍したら削除しておきます.
 ```
 $ wget https://github.com/opencv/opencv/archive/3.4.6.zip
 $ unzip 3.4.6.zip
@@ -57,7 +61,8 @@ opencv-3.4.6
 opencv_contrib-3.4.6
 ```
 
-そして落としてきたopencvディレクトリでビルドします.  
+### 2. Build OpenCV  
+落としてきたopencvディレクトリでビルドします.  
 cmake 関連は[こちらのブログ](http://weekendproject9.hatenablog.com/entry/2018/08/02/185136)を参考(2019/5/1).  
 PYTHON_EXECUTABLEの項目は普段自分が使っているバージョンに直しましょう.  
 ```
@@ -73,11 +78,59 @@ $ sudo make install
 $ sudo /bin/bash -c ‘echo “/usr/local/lib” > /etc/ld.so.conf.d/opencv.conf’
 $ sudo  ldconfig
 ```
+これでOpenCVは導入できたはず.  
+import cv2が通るかどうかを確認してみてください.  
 
-一旦ここまで！  
-メモ  
-cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true -DBUILD_CV_EXAMPLES=true  
-sudo make uninstall && make clean && make && sudo make install
+最後にパスを通します.  
+~/opencv/build ディレクトリ内に`OpenCVConfig.cmake`があることを確認したら以下を入力.  
+`$ export OpenCV_DIR=~/opencv/build`  
+
+## Instakk RealSense SDK
+ここまで問題なくできたらいよいよRealSenseの開発環境を整えていきます.  
+詳細は[公式のページ](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)を参考にしてください.  
+特にubuntu14系を使っている人は追加で入力するコマンドがたくさんあります.  
+ここではubuntu16/18系での構築を想定して書いていきます．  
+
+### 3. Download RealSense SDK  
+以降RealSenseをパソコンから外して進めていきましょう．  
+まずgitからSDKを落とします.  
+```
+$ cd
+$ git clone https://github.com/IntelRealSense/librealsense.git
+```
+次にもろもろのinstall.  
+`sudo apt install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev`  
+* Ubuntu16:  
+  `sudo apt install libglfw3-dev`
+* Ubuntu18:  
+  `sudo apt install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev`  
+
+落としたディレクトリに入って作業していきます．  
+```
+$ cd librealsense/
+$ ./scripts/setup_udev_rules.sh
+```
+Ubuntu14/16/18のLTSを使っている人は`$ ./scripts/patch-realsense-ubuntu-lts.sh`  
+他使ってる人は公式見てください.  
+
+
+### 4. Build RealSense SDK with OpenCV  
+いよいよBuildです．
+librealsense/ 内一番上の階層にいることを確認したら以下を入力．  
+cmakeの一番最後のオプションがミソです．  
+```
+$ mkdir build
+$ cd build
+$ cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true -DBUILD_CV_EXAMPLES=true
+```
+
+終わったら
+```
+$ sudo make uninstall && make clean && make **-j8** && sudo make install
+```
+時間かかります．  
+これで導入できたはずです．  
+import pyrealsense2 で確認しましょう.
 
 
 公式  
