@@ -10,7 +10,7 @@ And use it from Python-OpenCV
 未確認ですが多分こんなことしなくても`pip install pyrealsense2`で入ります．**
 
 対象者  
-~~* Ubuntu 環境で Python から OpenCV 使って RealSense を動かしたい人向け  ~~
+~~Ubuntu 環境で Python から OpenCV 使って RealSense を動かしたい人向け~~  
 * Ubuntu 環境で C の OpenCV を使って RealSense を動かしたい人向け
 
 環境  
