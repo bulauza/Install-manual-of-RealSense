@@ -126,7 +126,7 @@ $ cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true -DBUILD_CV_EXAMPLES
 
 終わったら
 ```
-$ sudo make uninstall && make clean && make **-j8** && sudo make install
+$ sudo make uninstall && make clean && make -j$(nproc) && sudo make install
 ```
 時間かかります．  
 これで導入できたはずです．  
