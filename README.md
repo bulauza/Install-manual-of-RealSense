@@ -27,7 +27,7 @@ And use it from Python-OpenCV
 
 If you want to use RealSense SDK from python, start to 3.
 
-
+## Preparation
 ```
 $ sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
 $ sudo apt install git cmake # If not installed
