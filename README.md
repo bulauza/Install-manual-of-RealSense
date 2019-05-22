@@ -3,27 +3,29 @@ How to install RealSense on Ubuntu 18.0.4
 And use it from Python-OpenCV
 
 内容  
-* pythonからRealSenseを動かす為の環境構築  
-* RealSense が OpneCV-3.4を要求するのでそれのinstallも込  
-* ソースコードからビルド．  
-**筆者の盛大な勘違いに基づいています．  
-未確認ですが多分こんなことしなくても`pip install pyrealsense2`で入ります．**
+* RealSenseを動かす為の環境構築  
+* C言語のOpenCVから使えるようにソースコードからビルド  
+**未確認ですがpythonで動かすだけなら多分こんなことしなくても`pip install pyrealsense2`で入ります．**
 
 対象者  
-~~Ubuntu 環境で Python から OpenCV 使って RealSense を動かしたい人向け~~  
-* Ubuntu 環境で C の OpenCV を使って RealSense を動かしたい人向け
+~~Ubuntu 環境で Python から OpenCV 使って RealSense を動かしたい人~~  
+* Ubuntu 環境で C の OpenCV を使って RealSense を動かしたい人
+* Ubuntu 環境で python 使って RealSense を動かしたい人
 
 環境  
 公式サイトによると以下をサポート(2019/5/1参照).  
 ちなみに自分が使用しているカーネルは`uname -r`で調べる.  
 > Ubuntu 16/18 LTS.  
 > Ubuntu LTS kernels 4.4, 4.10, 4.13 and 4.15.  
+公式はVirtualBOX非推奨ですが，筆者はなんとかなっています．
 
 流れ  
 1. Download source of OpenCV-3.4  
 2. Build OpenCV  
 3. Download RealSense SDK  
 4. Build RealSense SDK with OpenCV  
+
+If you want to use RealSense SDK from python, start to 3.
 
 
 ```
@@ -118,11 +120,13 @@ Ubuntu14/16/18のLTSを使っている人は`$ ./scripts/patch-realsense-ubuntu-
 ### 4. Build RealSense SDK with OpenCV  
 いよいよBuildです．
 librealsense/ 内一番上の階層にいることを確認したら以下を入力．  
-cmakeの一番最後のオプションがミソです．  
 ```
 $ mkdir build
 $ cd build
-$ cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true -DBUILD_CV_EXAMPLES=true
+# If you want to use SDK with OpenCV 
+  $ cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true -DBUILD_CV_EXAMPLES=true
+# Other person
+  $ cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true
 ```
 
 終わったら
