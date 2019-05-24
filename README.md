@@ -156,7 +156,7 @@ python で 使えるかは import pyrealsense2 で確認しましょう．
 
 
 
-#### 参考
+#### 参考  
 [opencv install guide](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html)  
 [Realsense install guide](https://github.com/IntelRealSense/librealsense)  
 ubuntu で導入するひとは[ここ](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)  
