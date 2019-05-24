@@ -141,22 +141,21 @@ $ cd build
 # If you want to use SDK with OpenCV 
   $ cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true -DBUILD_CV_EXAMPLES=true
 # Other person
-  $ cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true
+  $ cmake ../ -DCMAKE_BUILD_TYPE=Release -DBUILD_EXAMPLES=true -DBUILD_PYTHON_BINDINGS=true
 ```
 
 終わったら
 ```
 $ sudo make uninstall && make clean && make -j$(nproc) && sudo make install
+$ export PYTHONPATH=$PYTHONPATH:/usr/local/lib
 ```
-時間かかります．  
-これで導入できたはずです．  
+これまた時間かかります．  
+特に何もなく終われば導入できているはず．  
 import pyrealsense2 で確認しましょう.
 
 
 #### 参考
-公式  
-https://github.com/IntelRealSense/librealsense  
-ubuntu で導入するひとはここ  
-https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md  
-opencv  
-https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html
+[opencv install guide](https://docs.opencv.org/trunk/d7/d9f/tutorial_linux_install.html)  
+[Realsense install guide](https://github.com/IntelRealSense/librealsense)  
+ubuntu で導入するひとは[ここ](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)  
+cmake のオプション[一覧](https://github.com/IntelRealSense/librealsense/wiki/Build-Configuration)
