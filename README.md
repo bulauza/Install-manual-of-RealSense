@@ -5,7 +5,7 @@ And use it from Python-OpenCV
 内容  
 * RealSenseを動かす為の環境構築  
 * C言語のOpenCVから使えるようにソースコードからビルド  
-**未確認ですがpythonで動かすだけなら多分こんなことしなくても`pip install pyrealsense2`で入ります．**
+* `pip install pyrealsense2`で入るのは無印のSDKで，SDK2には対応していないので注意
 
 対象者  
 ~~Ubuntu 環境で Python から OpenCV 使って RealSense を動かしたい人~~  
@@ -42,7 +42,8 @@ $ sudo apt install git cmake # If not installed
 $ mkdir ~/opencv && cd ~/opencv
 $ sudo apt install build-essential
 $ sudo apt install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-($ sudo apt install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev)
+$ sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libdc1394-22-dev
+(# libjasper-devはパッケージが見つからないので除外)
 ```
 
 次にOpenCVのソースコードをダウンロード. 
@@ -71,7 +72,11 @@ PYTHON_EXECUTABLEの項目は普段自分が使っているバージョンに直
 ```
 $ cd opencv-3.4.6
 $ mkdir build && cd build
-$ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=~/opencv/opencv_contrib-3.4.6/modules  -D BUILD_NEW_PYTHON_SUPPORT=ON -D PYTHON_EXECUTABLE=/usr/bin/python3.6 -D BUILD_opencv_python3=ON -D INSTALL_PYTHON_EXAMPLES=ON -D BUILD_EXAMPLES=ON -D ENABLE_FAST_MATH=1 -D WITH_CUBLAS=1 -D WITH_OPENGL=ON  ..
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local\
+  -D OPENCV_EXTRA_MODULES_PATH=~/opencv/opencv_contrib-3.4.6/modules\
+  -D BUILD_NEW_PYTHON_SUPPORT=ON -D PYTHON_EXECUTABLE=/usr/bin/python3.6\
+   -D BUILD_opencv_python3=ON -D INSTALL_PYTHON_EXAMPLES=ON\
+   -D BUILD_EXAMPLES=ON -D ENABLE_FAST_MATH=1 -D WITH_CUBLAS=1 -D WITH_OPENGL=ON  ..
 ```
 こんな感じの出力があればよさげ
 ```
