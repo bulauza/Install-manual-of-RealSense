@@ -151,7 +151,7 @@ $ export PYTHONPATH=$PYTHONPATH:/usr/local/lib
 ```
 これまた時間かかります．  
 特に何もなく終われば導入できているはず．  
-`$ rs-capture` と打つとデモが開きます．
+`$ rs-capture` と打つとデモが開きます． 
 python で 使えるかは import pyrealsense2 で確認しましょう．  
 
 
