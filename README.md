@@ -97,10 +97,11 @@ $ sudo  ldconfig
 ```
 これでOpenCVは導入できたはず.  
 import cv2が通るかどうかを確認してみてください.  
+もし `ImportError: libopencv_xfeatures2d.so.3.4: undefined symbol:` というエラーが出たら再起動してみてください．  
 
 最後にパスを通します.  
 ~/opencv/build ディレクトリ内に`OpenCVConfig.cmake`があることを確認したら以下を入力.  
-`$ export OpenCV_DIR=~/opencv/build`  
+`$ export OpenCV_DIR=~/opencv/opencv-3.4.6/build`  
 
 ## Instakk RealSense SDK
 ここまで問題なくできたらいよいよRealSenseの開発環境を整えていきます.  
