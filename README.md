@@ -17,13 +17,6 @@ And use it from Python-OpenCV
   * RealSense は OpenCV3.4をサポートしています．
   導入手順は[こちら](https://github.com/bulauza/Install-manual-of-OpenCV3.4/blob/master/README.md)を参考に．
 
-環境  
-公式サイトによると以下をサポート(2019/5/1参照).  
-ちなみに自分が使用しているカーネルは`uname -r`で調べる.  
-> Ubuntu 16/18 LTS.  
-> Ubuntu LTS kernels 4.4, 4.10, 4.13 and 4.15.  
-公式はVirtualBOX非推奨ですが，筆者はなんとかなっています．
-
 流れ  
 1. Download RealSense SDK  
 2. Build RealSense SDK (with OpenCV)  
