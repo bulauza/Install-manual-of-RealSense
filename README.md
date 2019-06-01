@@ -11,6 +11,7 @@ And use it from Python-OpenCV
 メイン  
 * Ubuntu 環境で python 使って RealSense を動かしたい人
 * 公式のinstall手順(=英語)を読む気になれない人  
+
 サブ  
 * Ubuntu 環境で C の OpenCV を使って RealSense を動かしたい人
   * RealSense は OpenCV3.4をサポートしています．
