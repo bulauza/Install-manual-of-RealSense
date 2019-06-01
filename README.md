@@ -8,7 +8,6 @@ And use it from Python-OpenCV
 * `pip install pyrealsense2`で入るのは無印のSDKで，SDK2には対応していないので注意
 
 対象者  
-~~Ubuntu 環境で Python から OpenCV 使って RealSense を動かしたい人~~  
 * Ubuntu 環境で C の OpenCV を使って RealSense を動かしたい人
   * RealSense は OpenCV3.4をサポートしています．
   導入手順は[こちら](https://github.com/bulauza/Install-manual-of-OpenCV3.4/blob/master/README.md)を参考に．
