@@ -27,7 +27,7 @@ $ sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
 $ sudo apt install git cmake # If not installed
 ```
 
-## Instakk RealSense SDK
+## Install RealSense SDK
 RealSenseの開発環境を整えていきます.  
 RealSenseをパソコンから外して進めていきましょう．  
 詳細は[公式のページ](https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md)を参考.  
