@@ -55,6 +55,7 @@ $ ./scripts/setup_udev_rules.sh
 その後  
 Ubuntu14/16/18のLTSを使っている人は`$ ./scripts/patch-realsense-ubuntu-lts.sh`  
 他使ってる人は公式見てください.  
+色んなものを遮断している学校や会社のネットだと通らないことがあるので気を付けましょう．  
 
 
 ### 2. Build RealSense SDK with OpenCV  
@@ -75,7 +76,10 @@ $ cd build
 $ sudo make uninstall && make clean && make -j$(nproc) && sudo make install
 $ export PYTHONPATH=$PYTHONPATH:/usr/local/lib
 ```
-時間かかります．  
+時間かかります．    
+メモリが少ないとエラーが出て途中で止まってしまいます．  
+`internal compiler error (program cc1plus)`といった出力がされていれば疑ってみてください．  
+
 特に何もなく終われば導入できているはず．  
 `$ rs-capture` と打つとデモが開きます．  
 python で 使えるかは import pyrealsense2 で確認しましょう．  
