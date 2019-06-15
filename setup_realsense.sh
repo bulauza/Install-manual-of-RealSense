@@ -23,4 +23,5 @@ sudo apt install librealsense2-dev
 sudo apt install librealsense2-dbg
 g++ -std=c++11 filename.cpp -lrealsense2
 
+modinfo uvcvideo | grep "version:"
 echo $(colored $cyan "Finished")
