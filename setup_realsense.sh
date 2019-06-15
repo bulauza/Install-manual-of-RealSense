@@ -2,6 +2,9 @@
 source ./check.sh
 
 echo $(colored $cyan "Start")
+# Remove all RealSense SDK-related package
+dpkg -l | grep "realsense" | cut -d " " -f 3 | xargs sudo dpkg --purge
+
 #check pip3 install -r requirements.txt
 check sudo apt-key adv --keyserver keys.gnupg.net --recv-key C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key C8B3A55A6F3EFCDE
 
@@ -19,8 +22,5 @@ sudo apt install librealsense2-utils
 sudo apt install librealsense2-dev
 sudo apt install librealsense2-dbg
 g++ -std=c++11 filename.cpp -lrealsense2
-
-# Remove all RealSense SDK-related package
-#dpkg -l | grep "realsense" | cut -d " " -f 3 | xargs sudo dpkg --purge
 
 echo $(colored $cyan "Finished")
