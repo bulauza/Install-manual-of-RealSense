@@ -74,7 +74,6 @@ $ cd build
 終わったら
 ```
 $ sudo make uninstall && make clean && make -j$(nproc) && sudo make install
-$ export PYTHONPATH=$PYTHONPATH:/usr/local/lib
 ```
 時間かかります．    
 メモリが少ないとエラーが出て途中で止まってしまいます．  
@@ -82,7 +81,10 @@ $ export PYTHONPATH=$PYTHONPATH:/usr/local/lib
 
 特に何もなく終われば導入できているはず．  
 `$ rs-capture` と打つとデモが開きます．  
-python で 使えるかは import pyrealsense2 で確認しましょう．  
+
+最後に python で 使うためにパスを通します．  
+ホームディレクトリの.bashrc　の一番下に `$ export PYTHONPATH=$PYTHONPATH:/usr/local/lib` を追記してください．  
+その後 `import pyrealsense2` で確認しましょう．  
 
 
 
