@@ -23,8 +23,8 @@ And use it from Python-OpenCV
 
 ## Preparation with ubuntu
 ```
-$ sudo apt update && sudo apt upgrade && sudo apt dist-upgrade
-$ sudo apt install git cmake # If not installed
+$ sudo apt update && sudo apt upgrade -y && sudo apt dist-upgrade -y
+$ sudo apt install -y git cmake
 ```
 
 ## Install RealSense SDK
