@@ -55,7 +55,8 @@ $ ./scripts/setup_udev_rules.sh
 その後  
 Ubuntu14/16/18のLTSを使っている人は`$ ./scripts/patch-realsense-ubuntu-lts.sh`  
 他使ってる人は公式見てください.  
-色んなものを遮断している学校や会社のネットだと通らないことがあるので気を付けましょう．  
+色んなものを遮断している学校や会社のネットだと通らないことがあるので，  
+タイムアウトする場合は場所を変えてやってみてください．  
 
 
 ### 2. Build RealSense SDK with OpenCV  
