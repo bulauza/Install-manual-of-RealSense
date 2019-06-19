@@ -83,7 +83,7 @@ $ sudo make uninstall && make clean && make -j$(nproc) && sudo make install
 `$ rs-capture` と打つとデモが開きます．  
 
 最後に python で 使うためにパスを通します．  
-ホームディレクトリの.bashrc　の一番下に `$ export PYTHONPATH=$PYTHONPATH:/usr/local/lib` を追記してください．  
+ホームディレクトリの.bashrc の一番下に `$ export PYTHONPATH=$PYTHONPATH:/usr/local/lib` を追記してください．  
 その後 `import pyrealsense2` で確認しましょう．  
 
 
