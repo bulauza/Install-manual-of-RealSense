@@ -77,7 +77,8 @@ $ sudo make uninstall && make clean && make -j$(nproc) && sudo make install
 ```
 時間かかります．    
 メモリが少ないとエラーが出て途中で止まってしまいます．  
-`internal compiler error (program cc1plus)`といった出力がされていれば疑ってみてください．  
+`internal compiler error (program cc1plus)`といった出力がされていれば，  
+メモリの割り当てを増やしてみてください．  
 
 特に何もなく終われば導入できているはず．  
 `$ rs-capture` と打つとデモが開きます．  
