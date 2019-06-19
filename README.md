@@ -85,7 +85,7 @@ $ sudo make uninstall && make clean && make -j$(nproc) && sudo make install
 
 最後に python で 使うためにパスを通します．  
 ホームディレクトリ直下にある .bashrc を編集して，  
-一番下に `$ export PYTHONPATH=$PYTHONPATH:/usr/local/lib` を追記してください．  
+一番下に `export PYTHONPATH=$PYTHONPATH:/usr/local/lib` を追記してください．  
 できたら `import pyrealsense2` で確認しましょう．  
 
 
