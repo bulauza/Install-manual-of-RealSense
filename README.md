@@ -4,7 +4,7 @@ How to install RealSense on Ubuntu 16/18 LTS
 内容  
 * RealSenseをpythonで叩く為の環境をビルド  
 * ただし，基本的にはaptとpipで入るのでやらないほうがいいです．  
-* aptとpipで環境構築するbashを書きました．`setup_realsense.sh`を実行してください．  
+* aptとpipで環境構築するbashを書きました．以下を読む前に`setup_realsense.sh`を実行してください．  
 
 6/22追記
 * pythonラッパーは`pip install pyrealsense2`で入ります．  
