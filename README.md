@@ -1,12 +1,17 @@
 # Install-manual-of-RealSense
-How to install RealSense on Ubuntu 18.0.4  
-And use it from Python-OpenCV
+How to install RealSense on Ubuntu 16/18 LTS
 
 内容  
-* RealSenseを動かす為の環境構築  
-* C言語のOpenCVから使えるようにソースコードからビルド  
-* `pip install pyrealsense2`で入るのは無印のSDKで，SDK2には対応していないので注意  
+* RealSenseをpythonで叩く為の環境をビルド  
+* ただし，基本的にはaptとpipで入るのでやらないほうがいいです．  
+* aptとpipで環境構築するbashを書きました．setup.shを実行してください．  
 
+6/22追記
+* pythonラッパーは`pip install pyrealsense2`で入ります．  
+  * `pip install pyrealsense`とすると無印のSDKが入ってしまうので注意．  
+  * `pip install pyrealsense==2.0`と打っても無印が入るのでダメです．  
+  
+  
 対象者  
 * メイン  
   * Ubuntu 環境で python 使って RealSense を動かしたい人
