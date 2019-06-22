@@ -24,4 +24,7 @@ check sudo apt install -y librealsense2-dbg
 g++ -std=c++11 filename.cpp -lrealsense2
 
 modinfo uvcvideo | grep "version:"
+
+check echo "y" | pip install pyrealsense2
+
 echo $(colored $cyan "Finished")
